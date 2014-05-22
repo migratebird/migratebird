@@ -19,7 +19,7 @@
 # ----------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------
-# DbMaintain Start Up Shell script
+# MigrateBird Start Up Shell script
 #
 # Required ENV vars:
 # ------------------
@@ -27,11 +27,11 @@
 #
 # Optional ENV vars
 # -----------------
-#   MIGRATEBIRD_JDBC_DRIVER - JDBC driver library to be used by DbMaintain. May optionally be multiple jars separated by semicolons.
+#   MIGRATEBIRD_JDBC_DRIVER - JDBC driver library to be used by MigrateBird. May optionally be multiple jars separated by semicolons.
 #        Preferably, this variable is set in the script setJdbcDriver.sh.
 #   MIGRATEBIRD_HOME - location of migratebird's installed home dir
-#   MIGRATEBIRD_OPTS - parameters passed to the Java VM when running DbMaintain
-#     e.g. to debug DbMaintain itself, use
+#   MIGRATEBIRD_OPTS - parameters passed to the Java VM when running MigrateBird
+#     e.g. to debug MigrateBird itself, use
 #       set MIGRATEBIRD_OPTS=-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000
 # ----------------------------------------------------------------------------
 

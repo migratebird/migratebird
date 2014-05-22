@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 package com.migratebird.launch.ant;
 
 import com.migratebird.launch.task.CreateScriptArchiveTask;
-import com.migratebird.launch.task.DbMaintainTask;
+import com.migratebird.launch.task.MigrateBirdTask;
 
 /**
  * Task that enables creating a jar file that packages all database update scripts. This jar can then be used as
@@ -38,7 +38,7 @@ public class CreateScriptArchiveAntTask extends BaseAntTask {
 
 
     @Override
-    protected DbMaintainTask createDbMaintainTask() {
+    protected MigrateBirdTask createMigrateBirdTask() {
         return new CreateScriptArchiveTask(archiveFileName, scriptLocations, scriptEncoding, postProcessingScriptDirectoryName, qualifiers, patchQualifiers, scriptFileExtensions);
     }
 

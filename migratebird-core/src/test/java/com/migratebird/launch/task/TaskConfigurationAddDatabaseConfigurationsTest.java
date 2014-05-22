@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,7 +40,7 @@ public class TaskConfigurationAddDatabaseConfigurationsTest {
 
     @Test
     public void addUnnamedDatabase() {
-        DbMaintainDatabase unnamedDatabase = new DbMaintainDatabase(null, true, "dialect", "driver", "url", "user", "pass", "schemas", null);
+        MigrateBirdDatabase unnamedDatabase = new MigrateBirdDatabase(null, true, "dialect", "driver", "url", "user", "pass", "schemas", null);
         taskConfiguration.addDatabaseConfigurations(asList(unnamedDatabase));
 
         assertNamedDatabasePropertiesSet("<unnamed>");
@@ -49,7 +49,7 @@ public class TaskConfigurationAddDatabaseConfigurationsTest {
 
     @Test
     public void addNamedDatabase() {
-        DbMaintainDatabase namedDatabase = new DbMaintainDatabase("db1", true, "dialect", "driver", "url", "user", "pass", "schemas", null);
+        MigrateBirdDatabase namedDatabase = new MigrateBirdDatabase("db1", true, "dialect", "driver", "url", "user", "pass", "schemas", null);
         taskConfiguration.addDatabaseConfigurations(asList(namedDatabase));
 
         assertNamedDatabasePropertiesSet("db1");
@@ -58,8 +58,8 @@ public class TaskConfigurationAddDatabaseConfigurationsTest {
 
     @Test
     public void addNamedAndUnnamedDatabase() {
-        DbMaintainDatabase unnamedDatabase = new DbMaintainDatabase(null, true, "dialect", "driver", "url", "user", "pass", "schemas", null);
-        DbMaintainDatabase namedDatabase = new DbMaintainDatabase("db1", true, "dialect", "driver", "url", "user", "pass", "schemas", null);
+        MigrateBirdDatabase unnamedDatabase = new MigrateBirdDatabase(null, true, "dialect", "driver", "url", "user", "pass", "schemas", null);
+        MigrateBirdDatabase namedDatabase = new MigrateBirdDatabase("db1", true, "dialect", "driver", "url", "user", "pass", "schemas", null);
         taskConfiguration.addDatabaseConfigurations(asList(unnamedDatabase, namedDatabase));
 
         assertNamedDatabasePropertiesSet("<unnamed>");
@@ -69,8 +69,8 @@ public class TaskConfigurationAddDatabaseConfigurationsTest {
 
     @Test
     public void unnamedDatabaseShouldBePutAsFirstDatabase() {
-        DbMaintainDatabase namedDatabase = new DbMaintainDatabase("db1", true, "dialect", "driver", "url", "user", "pass", "schemas", null);
-        DbMaintainDatabase unnamedDatabase = new DbMaintainDatabase(null, true, "dialect", "driver", "url", "user", "pass", "schemas", null);
+        MigrateBirdDatabase namedDatabase = new MigrateBirdDatabase("db1", true, "dialect", "driver", "url", "user", "pass", "schemas", null);
+        MigrateBirdDatabase unnamedDatabase = new MigrateBirdDatabase(null, true, "dialect", "driver", "url", "user", "pass", "schemas", null);
         taskConfiguration.addDatabaseConfigurations(asList(namedDatabase, unnamedDatabase));
 
         assertNamedDatabasePropertiesSet("<unnamed>");
@@ -80,8 +80,8 @@ public class TaskConfigurationAddDatabaseConfigurationsTest {
 
     @Test
     public void addMultipleNamedDatabases() {
-        DbMaintainDatabase namedDatabase1 = new DbMaintainDatabase("db1", true, "dialect", "driver", "url", "user", "pass", "schemas", null);
-        DbMaintainDatabase namedDatabase2 = new DbMaintainDatabase("db2", true, "dialect", "driver", "url", "user", "pass", "schemas", null);
+        MigrateBirdDatabase namedDatabase1 = new MigrateBirdDatabase("db1", true, "dialect", "driver", "url", "user", "pass", "schemas", null);
+        MigrateBirdDatabase namedDatabase2 = new MigrateBirdDatabase("db2", true, "dialect", "driver", "url", "user", "pass", "schemas", null);
         taskConfiguration.addDatabaseConfigurations(asList(namedDatabase1, namedDatabase2));
 
         assertNamedDatabasePropertiesSet("db1");

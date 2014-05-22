@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,19 +26,19 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import com.migratebird.database.Database;
+import com.migratebird.database.AbstractDatabase;
 import com.migratebird.database.DatabaseConnection;
 import com.migratebird.database.DatabaseException;
 import com.migratebird.database.IdentifierProcessor;
 import com.migratebird.database.SQLHandler;
 
 /**
- * Implementation of {@link com.migratebird.database.Database} for a MsSQL database.
+ * Implementation of {@link com.migratebird.database.AbstractDatabase} for a MsSQL database.
  * <p/>
  * Special thanks to Niki Driessen who donated the initial version of the MsSql support code.
  *
  */
-public class MsSqlDatabase extends Database {
+public class MsSqlDatabase extends AbstractDatabase {
 
 
     public MsSqlDatabase(DatabaseConnection databaseConnection, IdentifierProcessor identifierProcessor) {

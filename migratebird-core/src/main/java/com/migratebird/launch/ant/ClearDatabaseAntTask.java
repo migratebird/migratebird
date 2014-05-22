@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 package com.migratebird.launch.ant;
 
 import com.migratebird.launch.task.ClearDatabaseTask;
-import com.migratebird.launch.task.DbMaintainTask;
+import com.migratebird.launch.task.MigrateBirdTask;
 
 /**
  * Task that removes all database items like tables, views etc from the database and empties the MIGRATEBIRD_SCRIPTS table.
@@ -26,7 +26,7 @@ public class ClearDatabaseAntTask extends BaseDatabaseAntTask {
 
 
     @Override
-    protected DbMaintainTask createDbMaintainTask() {
-        return new ClearDatabaseTask(getDbMaintainDatabases());
+    protected MigrateBirdTask createMigrateBirdTask() {
+        return new ClearDatabaseTask(getMigrateBirdDatabases());
     }
 }

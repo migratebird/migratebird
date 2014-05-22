@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@ import com.migratebird.structure.sequence.SequenceUpdater;
  * Task that updates all sequences and identity columns to a minimum value.
  *
 */
-public class UpdateSequencesTask extends DbMaintainDatabaseTask {
+public class UpdateSequencesTask extends MigrateBirdDatabaseTask {
 
     protected Long lowestAcceptableSequenceValue;
 
@@ -34,7 +34,7 @@ public class UpdateSequencesTask extends DbMaintainDatabaseTask {
     public UpdateSequencesTask() {
     }
 
-    public UpdateSequencesTask(List<DbMaintainDatabase> taskDatabases, Long lowestAcceptableSequenceValue) {
+    public UpdateSequencesTask(List<MigrateBirdDatabase> taskDatabases, Long lowestAcceptableSequenceValue) {
         super(taskDatabases);
         this.lowestAcceptableSequenceValue = lowestAcceptableSequenceValue;
     }

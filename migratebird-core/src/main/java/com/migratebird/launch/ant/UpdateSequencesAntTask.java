@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
  */
 package com.migratebird.launch.ant;
 
-import com.migratebird.launch.task.DbMaintainTask;
+import com.migratebird.launch.task.MigrateBirdTask;
 import com.migratebird.launch.task.UpdateSequencesTask;
 
 /**
@@ -28,8 +28,8 @@ public class UpdateSequencesAntTask extends BaseDatabaseAntTask {
 
 
     @Override
-    protected DbMaintainTask createDbMaintainTask() {
-        return new UpdateSequencesTask(getDbMaintainDatabases(), lowestAcceptableSequenceValue);
+    protected MigrateBirdTask createMigrateBirdTask() {
+        return new UpdateSequencesTask(getMigrateBirdDatabases(), lowestAcceptableSequenceValue);
     }
 
 

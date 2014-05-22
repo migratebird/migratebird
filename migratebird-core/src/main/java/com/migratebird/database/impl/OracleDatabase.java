@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,17 +24,17 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Set;
 
-import com.migratebird.database.Database;
+import com.migratebird.database.AbstractDatabase;
 import com.migratebird.database.DatabaseConnection;
 import com.migratebird.database.DatabaseException;
 import com.migratebird.database.IdentifierProcessor;
 
 /**
- * Implementation of {@link com.migratebird.database.Database} for an Oracle
+ * Implementation of {@link com.migratebird.database.AbstractDatabase} for an Oracle
  * database.
  * 
 */
-public class OracleDatabase extends Database {
+public class OracleDatabase extends AbstractDatabase {
 
 	/* The major version number of the Oracle database */
 	private Integer oracleMajorVersionNumber;

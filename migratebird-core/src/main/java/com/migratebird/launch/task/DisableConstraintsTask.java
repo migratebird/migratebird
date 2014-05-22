@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,13 +24,13 @@ import com.migratebird.structure.constraint.ConstraintsDisabler;
  * Task that disables or drops all foreign key and not null constraints.
  *
 */
-public class DisableConstraintsTask extends DbMaintainDatabaseTask {
+public class DisableConstraintsTask extends MigrateBirdDatabaseTask {
 
 
     public DisableConstraintsTask() {
     }
 
-    public DisableConstraintsTask(List<DbMaintainDatabase> taskDatabases) {
+    public DisableConstraintsTask(List<MigrateBirdDatabase> taskDatabases) {
         super(taskDatabases);
     }
 

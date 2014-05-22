@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,13 +24,13 @@ import com.migratebird.structure.clear.DBClearer;
  * Task that removes all database items, and empties the MIGRATEBIRD_SCRIPTS table.
  *
 */
-public class ClearDatabaseTask extends DbMaintainDatabaseTask {
+public class ClearDatabaseTask extends MigrateBirdDatabaseTask {
 
 
     public ClearDatabaseTask() {
     }
 
-    public ClearDatabaseTask(List<DbMaintainDatabase> taskDatabases) {
+    public ClearDatabaseTask(List<MigrateBirdDatabase> taskDatabases) {
         super(taskDatabases);
     }
 

@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,14 +17,14 @@ package com.migratebird.database.impl;
 
 import java.util.Set;
 
-import com.migratebird.database.Database;
+import com.migratebird.database.AbstractDatabase;
 import com.migratebird.database.DatabaseConnection;
 import com.migratebird.database.IdentifierProcessor;
 import com.migratebird.database.SQLHandler;
 import com.migratebird.database.StoredIdentifierCase;
 
 /**
- * Implementation of {@link com.migratebird.database.Database} for a MySql database.
+ * Implementation of {@link com.migratebird.database.AbstractDatabase} for a MySql database.
  * <p/>
  * Note: by default MySql uses '`' (back-quote) for quoting identifiers. '"' (double quotes) is only supported in MySql
  * if ANSI_QUOTES sql mode is enabled. Quoting identifiers does not make them case-sensitive. Case-sensitivity is
@@ -34,7 +34,7 @@ import com.migratebird.database.StoredIdentifierCase;
  * Trigger names are an exception to this: they are always case-sensitive.
  *
  */
-public class MySqlDatabase extends Database {
+public class MySqlDatabase extends AbstractDatabase {
 
 
     public MySqlDatabase(DatabaseConnection databaseConnection, IdentifierProcessor identifierProcessor) {

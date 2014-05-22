@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
  */
 package com.migratebird.launch.ant;
 
-import com.migratebird.launch.task.DbMaintainTask;
+import com.migratebird.launch.task.MigrateBirdTask;
 import com.migratebird.launch.task.UpdateDatabaseTask;
 
 /**
@@ -28,7 +28,7 @@ public class UpdateDatabaseAntTask extends BaseDatabaseAntTask {
     private String scriptEncoding;
     private String postProcessingScriptDirectoryName;
     private Boolean fromScratchEnabled;
-    private Boolean autoCreateDbMaintainScriptsTable;
+    private Boolean autoCreateMigrateBirdScriptsTable;
     private Boolean allowOutOfSequenceExecutionOfPatches;
     private String qualifiers;
     private String patchQualifiers;
@@ -43,8 +43,8 @@ public class UpdateDatabaseAntTask extends BaseDatabaseAntTask {
 
 
     @Override
-    protected DbMaintainTask createDbMaintainTask() {
-        return new UpdateDatabaseTask(getDbMaintainDatabases(), scriptLocations, scriptEncoding, postProcessingScriptDirectoryName, fromScratchEnabled, autoCreateDbMaintainScriptsTable, allowOutOfSequenceExecutionOfPatches, qualifiers, patchQualifiers, includedQualifiers, excludedQualifiers, cleanDb, disableConstraints, updateSequences, useLastModificationDates, scriptFileExtensions, scriptParameterFile);
+    protected MigrateBirdTask createMigrateBirdTask() {
+        return new UpdateDatabaseTask(getMigrateBirdDatabases(), scriptLocations, scriptEncoding, postProcessingScriptDirectoryName, fromScratchEnabled, autoCreateMigrateBirdScriptsTable, allowOutOfSequenceExecutionOfPatches, qualifiers, patchQualifiers, includedQualifiers, excludedQualifiers, cleanDb, disableConstraints, updateSequences, useLastModificationDates, scriptFileExtensions, scriptParameterFile);
     }
 
     /**
@@ -85,7 +85,7 @@ public class UpdateDatabaseAntTask extends BaseDatabaseAntTask {
      * <li>A new script has been added with an index number lower than the one of an already executed script</li>
      * <li>An script that was already executed has been removed or renamed</li>
      * </ul>
-     * If set to false, the DbMaintainer will give an error if one of these situations occurs. The default is false.
+     * If set to false, the MigrateBird will give an error if one of these situations occurs. The default is false.
      *
      * @param fromScratchEnabled True if the database can be updated from scratch.
      */
@@ -98,11 +98,11 @@ public class UpdateDatabaseAntTask extends BaseDatabaseAntTask {
      * If false, an exception is thrown, indicating how to create the table manually.
      * False by default.
      *
-     * @param autoCreateDbMaintainScriptsTable
+     * @param autoCreateMigrateBirdScriptsTable
      *         True if the MIGRATEBIRD_SCRIPTS table can be created automatically
      */
-    public void setAutoCreateDbMaintainScriptsTable(boolean autoCreateDbMaintainScriptsTable) {
-        this.autoCreateDbMaintainScriptsTable = autoCreateDbMaintainScriptsTable;
+    public void setAutoCreateMigrateBirdScriptsTable(boolean autoCreateMigrateBirdScriptsTable) {
+        this.autoCreateMigrateBirdScriptsTable = autoCreateMigrateBirdScriptsTable;
     }
 
     /**
@@ -160,7 +160,7 @@ public class UpdateDatabaseAntTask extends BaseDatabaseAntTask {
     /**
      * Indicates whether the database should be 'cleaned' before scripts are executed. If true, the
      * records of all database tables, except for the ones listed in 'migratebird.preserve.*' or
-     * 'dbMaintain.preserveDataOnly.*' are deleted before and after executing the scripts. False by default.
+     * 'migrateBird.preserveDataOnly.*' are deleted before and after executing the scripts. False by default.
      *
      * @param cleanDb True if the database must be 'cleaned' before executing scripts.
      */
@@ -200,7 +200,7 @@ public class UpdateDatabaseAntTask extends BaseDatabaseAntTask {
 
     /**
      * Defines whether the last modification dates of the scripts files can be used to determine whether the contents of a
-     * script has changed. If set to true, DbMaintain will not look at the contents of scripts that were already
+     * script has changed. If set to true, MigrateBird will not look at the contents of scripts that were already
      * executed on the database, if the last modification date is still the same. If it did change, it will first calculate
      * the checksum of the file to verify that the content really changed. Setting this property to true improves performance:
      * if set to false the checksum of every script must be calculated for each run. True by default.

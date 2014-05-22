@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,15 +30,15 @@ public class DbItemIdentifier {
     private String databaseName;
     private String schemaName;
     private String itemName;
-    private boolean dbMaintainIdentifier;
+    private boolean migrateBirdIdentifier;
 
 
-    private DbItemIdentifier(DbItemType type, String databaseName, String schemaName, String itemName, boolean dbMaintainIdentifier) {
+    private DbItemIdentifier(DbItemType type, String databaseName, String schemaName, String itemName, boolean migrateBirdIdentifier) {
         this.type = type;
         this.databaseName = databaseName;
         this.schemaName = schemaName;
         this.itemName = itemName;
-        this.dbMaintainIdentifier = dbMaintainIdentifier;
+        this.migrateBirdIdentifier = migrateBirdIdentifier;
     }
 
 
@@ -62,8 +62,8 @@ public class DbItemIdentifier {
         return new DbItemIdentifier(DbItemType.SCHEMA, databaseName, schemaName, null, false);
     }
 
-    public boolean isDbMaintainIdentifier() {
-        return dbMaintainIdentifier;
+    public boolean isMigrateBirdIdentifier() {
+        return migrateBirdIdentifier;
     }
 
 
@@ -174,7 +174,7 @@ public class DbItemIdentifier {
         return getItemIdentifier(type, schemaName, itemName, database, false);
     }
 
-    public static DbItemIdentifier getItemIdentifier(DbItemType type, String dbSchemaName, String dbItemName, Database database, boolean dbMaintainIdentifier) {
+    public static DbItemIdentifier getItemIdentifier(DbItemType type, String dbSchemaName, String dbItemName, Database database, boolean migrateBirdIdentifier) {
         // if the identifier is not quoted (case-sensitive)
         // and the db stores mixed casing, convert to upper case to make it case-insensitive
     	String itemName = dbItemName;
@@ -193,6 +193,6 @@ public class DbItemIdentifier {
         if (itemName != null) {
             correctCaseItemName = database.toCorrectCaseIdentifier(itemName);
         }
-        return new DbItemIdentifier(type, database.getDatabaseName(), correctCaseSchemaName, correctCaseItemName, dbMaintainIdentifier);
+        return new DbItemIdentifier(type, database.getDatabaseName(), correctCaseSchemaName, correctCaseItemName, migrateBirdIdentifier);
     }
 }

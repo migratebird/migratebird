@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,9 +28,6 @@ import static com.migratebird.script.analyzer.ScriptUpdateType.*;
 import static com.migratebird.util.TestUtils.*;
 import static org.junit.Assert.assertTrue;
 
-/**
-* @since 28-dec-2008
- */
 public class ScriptUpdatesAnalyzerTest {
 
     private static final Script INDEXED_1 = createScript("1_indexed1.sql", false);

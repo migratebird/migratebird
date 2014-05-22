@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,16 +17,16 @@ package com.migratebird.database.impl;
 
 import java.util.Set;
 
-import com.migratebird.database.Database;
+import com.migratebird.database.AbstractDatabase;
 import com.migratebird.database.DatabaseConnection;
 import com.migratebird.database.IdentifierProcessor;
 import com.migratebird.database.SQLHandler;
 
 /**
- * Implementation of {@link com.migratebird.database.Database} for an IBM DB2 database
+ * Implementation of {@link com.migratebird.database.AbstractDatabase} for an IBM DB2 database
  *
  */
-public class Db2Database extends Database {
+public class Db2Database extends AbstractDatabase {
 
 
     public Db2Database(DatabaseConnection databaseConnection, IdentifierProcessor identifierProcessor) {

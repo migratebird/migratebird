@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -366,7 +366,7 @@ public class DefaultDBClearer implements DBClearer {
                 case SCHEMA:
                     if (!database.getSchemaNames().contains(itemToPreserve.getSchemaName())) {
                         throw new MigrateBirdException("Schema to preserve does not exist: " + itemToPreserve.getSchemaName() +
-                                ".\nDbMaintain cannot determine which schema's need to be preserved. To assure nothing is dropped by mistake, no schema's will be dropped.");
+                                ".\nMigrateBird cannot determine which schema's need to be preserved. To assure nothing is dropped by mistake, no schema's will be dropped.");
                     }
                     break;
                 case TABLE:
@@ -376,9 +376,9 @@ public class DefaultDBClearer implements DBClearer {
                         schemaTables.put(itemToPreserve.getSchema(), tableNames);
                     }
 
-                    if (!itemToPreserve.isDbMaintainIdentifier() && !tableNames.contains(itemToPreserve)) {
+                    if (!itemToPreserve.isMigrateBirdIdentifier() && !tableNames.contains(itemToPreserve)) {
                         throw new MigrateBirdException("Table to preserve does not exist: " + itemToPreserve.getItemName() + " in schema: " + itemToPreserve.getSchemaName() +
-                                ".\nDbMaintain cannot determine which tables need to be preserved. To assure nothing is dropped by mistake, no tables will be dropped.");
+                                ".\nMigrateBird cannot determine which tables need to be preserved. To assure nothing is dropped by mistake, no tables will be dropped.");
                     }
                     break;
                 case VIEW:
@@ -390,7 +390,7 @@ public class DefaultDBClearer implements DBClearer {
 
                     if (!viewNames.contains(itemToPreserve)) {
                         throw new MigrateBirdException("View to preserve does not exist: " + itemToPreserve.getItemName() + " in schema: " + itemToPreserve.getSchemaName() +
-                                ".\nDbMaintain cannot determine which views need to be preserved. To assure nothing is dropped by mistake, no views will be dropped.");
+                                ".\nMigrateBird cannot determine which views need to be preserved. To assure nothing is dropped by mistake, no views will be dropped.");
                     }
                     break;
                 case MATERIALIZED_VIEW:
@@ -406,7 +406,7 @@ public class DefaultDBClearer implements DBClearer {
 
                     if (!materializedViewNames.contains(itemToPreserve)) {
                         throw new MigrateBirdException("Materialized view to preserve does not exist: " + itemToPreserve.getItemName() + " in schema: " + itemToPreserve.getSchemaName() +
-                                ".\nDbMaintain cannot determine which materialized views need to be preserved. To assure nothing is dropped by mistake, no materialized views will be dropped.");
+                                ".\nMigrateBird cannot determine which materialized views need to be preserved. To assure nothing is dropped by mistake, no materialized views will be dropped.");
                     }
                     break;
                 case SEQUENCE:
@@ -421,7 +421,7 @@ public class DefaultDBClearer implements DBClearer {
                     }
                     if (!sequenceNames.contains(itemToPreserve)) {
                         throw new MigrateBirdException("Sequence to preserve does not exist: " + itemToPreserve.getItemName() + " in schema: " + itemToPreserve.getSchemaName() +
-                                ".\nDbMaintain cannot determine which sequences need to be preserved. To assure nothing is dropped by mistake, no sequences will be dropped.");
+                                ".\nMigrateBird cannot determine which sequences need to be preserved. To assure nothing is dropped by mistake, no sequences will be dropped.");
                     }
                     break;
                 case SYNONYM:
@@ -437,7 +437,7 @@ public class DefaultDBClearer implements DBClearer {
 
                     if (!synonymNames.contains(itemToPreserve)) {
                         throw new MigrateBirdException("Synonym to preserve does not exist: " + itemToPreserve.getItemName() + " in schema: " + itemToPreserve.getSchemaName() +
-                                ".\nDbMaintain cannot determine which synonyms need to be preserved. To assure nothing is dropped by mistake, no synonyms will be dropped.");
+                                ".\nMigrateBird cannot determine which synonyms need to be preserved. To assure nothing is dropped by mistake, no synonyms will be dropped.");
                     }
                     break;
                 case TRIGGER:
@@ -453,7 +453,7 @@ public class DefaultDBClearer implements DBClearer {
 
                     if (!triggerNames.contains(itemToPreserve)) {
                         throw new MigrateBirdException("Trigger to preserve does not exist: " + itemToPreserve.getItemName() + " in schema: " + itemToPreserve.getSchemaName() +
-                                ".\nDbMaintain cannot determine which triggers need to be preserved. To assure nothing is dropped by mistake, no triggers will be dropped.");
+                                ".\nMigrateBird cannot determine which triggers need to be preserved. To assure nothing is dropped by mistake, no triggers will be dropped.");
                     }
                     break;
                 case TYPE:
@@ -469,7 +469,7 @@ public class DefaultDBClearer implements DBClearer {
 
                     if (!typeNames.contains(itemToPreserve)) {
                         throw new MigrateBirdException("Type to preserve does not exist: " + itemToPreserve.getItemName() + " in schema: " + itemToPreserve.getSchemaName() +
-                                ".\nDbMaintain cannot determine which types need to be preserved. To assure nothing is dropped by mistake, no types will be dropped.");
+                                ".\nMigrateBird cannot determine which types need to be preserved. To assure nothing is dropped by mistake, no types will be dropped.");
                     }
                     break;
             }

@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,8 +16,8 @@
 package com.migratebird.maven.plugin;
 
 import com.migratebird.launch.task.CheckScriptUpdatesTask;
-import com.migratebird.launch.task.DbMaintainDatabase;
-import com.migratebird.launch.task.DbMaintainTask;
+import com.migratebird.launch.task.MigrateBirdDatabase;
+import com.migratebird.launch.task.MigrateBirdTask;
 
 import java.util.List;
 
@@ -68,19 +68,19 @@ public class CheckScriptUpdatesMojo extends BaseDatabaseMojo {
      * <li>A new script has been added with an index number lower than the one of an already executed script</li>
      * <li>An script that was already executed has been removed or renamed</li>
      * </ul>
-     * If set to false, DbMaintain will give an error if one of these situations occurs. The default is false.
+     * If set to false, MigrateBird will give an error if one of these situations occurs. The default is false.
      *
      * @parameter
      */
     protected Boolean fromScratchEnabled;
     /**
-     * Sets the autoCreateDbMaintainScriptsTable property. If set to true, the table MIGRATEBIRD_SCRIPTS will be created
+     * Sets the autoCreateMigrateBirdScriptsTable property. If set to true, the table MIGRATEBIRD_SCRIPTS will be created
      * automatically if it does not exist yet. If false, an exception is thrown, indicating how to create the table manually.
      * False by default.
      *
      * @parameter
      */
-    protected Boolean autoCreateDbMaintainScriptsTable;
+    protected Boolean autoCreateMigrateBirdScriptsTable;
     /**
      * If this property is set to true, a patch script is allowed to be executed even if another script
      * with a higher index was already executed.
@@ -125,7 +125,7 @@ public class CheckScriptUpdatesMojo extends BaseDatabaseMojo {
     protected String scriptFileExtensions;
     /**
      * Defines whether the last modification dates of the scripts files can be used to determine whether the contents of a
-     * script has changed. If set to true, DbMaintain will not look at the contents of scripts that were already
+     * script has changed. If set to true, MigrateBird will not look at the contents of scripts that were already
      * executed on the database, if the last modification date is still the same. If it did change, it will first calculate
      * the checksum of the file to verify that the content really changed. Setting this property to true improves performance:
      * if set to false the checksum of every script must be calculated for each run. True by default.
@@ -136,8 +136,8 @@ public class CheckScriptUpdatesMojo extends BaseDatabaseMojo {
 
 
     @Override
-    protected DbMaintainTask createDbMaintainTask(List<DbMaintainDatabase> dbMaintainDatabases) {
+    protected MigrateBirdTask createMigrateBirdTask(List<MigrateBirdDatabase> migrateBirdDatabases) {
         String allScriptLocations = getAllScriptLocations(scriptLocations, scriptArchiveDependencies);
-        return new CheckScriptUpdatesTask(dbMaintainDatabases, allScriptLocations, scriptEncoding, postProcessingScriptDirectoryName, fromScratchEnabled, autoCreateDbMaintainScriptsTable, allowOutOfSequenceExecutionOfPatches, qualifiers, patchQualifiers, includedQualifiers, excludedQualifiers, scriptFileExtensions, useLastModificationDates);
+        return new CheckScriptUpdatesTask(migrateBirdDatabases, allScriptLocations, scriptEncoding, postProcessingScriptDirectoryName, fromScratchEnabled, autoCreateMigrateBirdScriptsTable, allowOutOfSequenceExecutionOfPatches, qualifiers, patchQualifiers, includedQualifiers, excludedQualifiers, scriptFileExtensions, useLastModificationDates);
     }
 }

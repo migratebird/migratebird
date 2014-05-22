@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,8 +32,6 @@ import com.migratebird.database.DatabaseInfo;
 /**
  * Factory class for a very simple DataSource that provides access to a database without any connection pooling facilities.
  * Only the parameterless getConnection() method is implemented.
- *
-* @since 3-jan-2009
  */
 public class SimpleDataSource {
 

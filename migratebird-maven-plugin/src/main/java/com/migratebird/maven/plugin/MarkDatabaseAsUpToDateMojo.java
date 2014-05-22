@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,15 +15,15 @@
  */
 package com.migratebird.maven.plugin;
 
-import com.migratebird.launch.task.DbMaintainDatabase;
-import com.migratebird.launch.task.DbMaintainTask;
+import com.migratebird.launch.task.MigrateBirdDatabase;
+import com.migratebird.launch.task.MigrateBirdTask;
 import com.migratebird.launch.task.MarkDatabaseAsUpToDateTask;
 
 import java.util.List;
 
 /**
  * This operation updates the state of the database to indicate that all scripts have been executed, without actually
- * executing them. This can be useful when you want to start using DbMaintain on an existing database, or after having
+ * executing them. This can be useful when you want to start using MigrateBird on an existing database, or after having
  * fixed a problem directly on the database.
  *
 * @goal markDatabaseAsUpToDate
@@ -49,13 +49,13 @@ public class MarkDatabaseAsUpToDateMojo extends BaseDatabaseMojo {
      */
     protected String scriptLocations;
     /**
-     * Sets the autoCreateDbMaintainScriptsTable property. If set to true, the table MIGRATEBIRD_SCRIPTS will be created
+     * Sets the autoCreateMigrateBirdScriptsTable property. If set to true, the table MIGRATEBIRD_SCRIPTS will be created
      * automatically if it does not exist yet. If false, an exception is thrown, indicating how to create the table manually.
      * False by default.
      *
      * @parameter
      */
-    private Boolean autoCreateDbMaintainScriptsTable;
+    private Boolean autoCreateMigrateBirdScriptsTable;
     /**
      * Optional comma-separated list of script qualifiers. All custom qualifiers that are used in script file names must
      * be declared.
@@ -87,8 +87,8 @@ public class MarkDatabaseAsUpToDateMojo extends BaseDatabaseMojo {
 
 
     @Override
-    protected DbMaintainTask createDbMaintainTask(List<DbMaintainDatabase> dbMaintainDatabases) {
+    protected MigrateBirdTask createMigrateBirdTask(List<MigrateBirdDatabase> migrateBirdDatabases) {
         String allScriptLocations = getAllScriptLocations(scriptLocations, scriptArchiveDependencies);
-        return new MarkDatabaseAsUpToDateTask(dbMaintainDatabases, allScriptLocations, autoCreateDbMaintainScriptsTable, qualifiers, includedQualifiers, excludedQualifiers, scriptFileExtensions);
+        return new MarkDatabaseAsUpToDateTask(migrateBirdDatabases, allScriptLocations, autoCreateMigrateBirdScriptsTable, qualifiers, includedQualifiers, excludedQualifiers, scriptFileExtensions);
     }
 }

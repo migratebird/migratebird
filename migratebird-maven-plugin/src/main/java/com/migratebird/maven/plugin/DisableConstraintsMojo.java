@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,8 +15,8 @@
  */
 package com.migratebird.maven.plugin;
 
-import com.migratebird.launch.task.DbMaintainDatabase;
-import com.migratebird.launch.task.DbMaintainTask;
+import com.migratebird.launch.task.MigrateBirdDatabase;
+import com.migratebird.launch.task.MigrateBirdTask;
 import com.migratebird.launch.task.DisableConstraintsTask;
 
 import java.util.List;
@@ -29,7 +29,7 @@ import java.util.List;
 public class DisableConstraintsMojo extends BaseDatabaseMojo {
 
     @Override
-    protected DbMaintainTask createDbMaintainTask(List<DbMaintainDatabase> dbMaintainDatabases) {
-        return new DisableConstraintsTask(dbMaintainDatabases);
+    protected MigrateBirdTask createMigrateBirdTask(List<MigrateBirdDatabase> migrateBirdDatabases) {
+        return new DisableConstraintsTask(migrateBirdDatabases);
     }
 }

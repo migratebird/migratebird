@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -189,7 +189,7 @@ public class MigratebirdProperties {
     public static final String PROPERTY_SUCCEEDED_COLUMN_NAME = "migratebird.succeededColumnName";
 
     /* The key of the property that specifies whether the executed scripts table should be created automatically. */
-    public static final String PROPERTY_AUTO_CREATE_MIGRATEBIRD_SCRIPTS_TABLE = "migratebird.autoCreateDbMaintainScriptsTable";
+    public static final String PROPERTY_AUTO_CREATE_MIGRATEBIRD_SCRIPTS_TABLE = "migratebird.autoCreateMigrateBirdScriptsTable";
 
     public static final String PROPERTY_TIMESTAMP_FORMAT = "migratebird.timestampFormat";
 

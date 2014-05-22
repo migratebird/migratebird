@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,18 +24,18 @@ import static com.migratebird.config.MigratebirdProperties.PROPERTY_SCRIPT_LOCAT
 
 import java.util.List;
 
-import com.migratebird.DbMaintainer;
+import com.migratebird.DbUpdate;
 import com.migratebird.MainFactory;
 
 /**
  * Task that marks the database as up-to-date, without executing any script. You can use this operation to prepare
- * an existing database to be managed by DbMaintain, or after having manually fixed a problem.
+ * an existing database to be managed by MigrateBird, or after having manually fixed a problem.
  *
 */
-public class MarkDatabaseAsUpToDateTask extends DbMaintainDatabaseTask {
+public class MarkDatabaseAsUpToDateTask extends MigrateBirdDatabaseTask {
 
     protected String scriptLocations;
-    protected Boolean autoCreateDbMaintainScriptsTable;
+    protected Boolean autoCreateMigrateBirdScriptsTable;
     protected String qualifiers;
     protected String includedQualifiers;
     protected String excludedQualifiers;
@@ -45,10 +45,10 @@ public class MarkDatabaseAsUpToDateTask extends DbMaintainDatabaseTask {
     public MarkDatabaseAsUpToDateTask() {
     }
 
-    public MarkDatabaseAsUpToDateTask(List<DbMaintainDatabase> taskDatabases, String scriptLocations, Boolean autoCreateDbMaintainScriptsTable, String qualifiers, String includedQualifiers, String excludedQualifiers, String scriptFileExtensions) {
+    public MarkDatabaseAsUpToDateTask(List<MigrateBirdDatabase> taskDatabases, String scriptLocations, Boolean autoCreateMigrateBirdScriptsTable, String qualifiers, String includedQualifiers, String excludedQualifiers, String scriptFileExtensions) {
         super(taskDatabases);
         this.scriptLocations = scriptLocations;
-        this.autoCreateDbMaintainScriptsTable = autoCreateDbMaintainScriptsTable;
+        this.autoCreateMigrateBirdScriptsTable = autoCreateMigrateBirdScriptsTable;
         this.qualifiers = qualifiers;
         this.includedQualifiers = includedQualifiers;
         this.excludedQualifiers = excludedQualifiers;
@@ -60,7 +60,7 @@ public class MarkDatabaseAsUpToDateTask extends DbMaintainDatabaseTask {
     protected void addTaskConfiguration(TaskConfiguration taskConfiguration) {
         taskConfiguration.addDatabaseConfigurations(databases);
         taskConfiguration.addConfigurationIfSet(PROPERTY_SCRIPT_LOCATIONS, scriptLocations);
-        taskConfiguration.addConfigurationIfSet(PROPERTY_AUTO_CREATE_MIGRATEBIRD_SCRIPTS_TABLE, autoCreateDbMaintainScriptsTable);
+        taskConfiguration.addConfigurationIfSet(PROPERTY_AUTO_CREATE_MIGRATEBIRD_SCRIPTS_TABLE, autoCreateMigrateBirdScriptsTable);
         taskConfiguration.addConfigurationIfSet(PROPERTY_QUALIFIERS, qualifiers);
         taskConfiguration.addConfigurationIfSet(PROPERTY_INCLUDED_QUALIFIERS, includedQualifiers);
         taskConfiguration.addConfigurationIfSet(PROPERTY_EXCLUDED_QUALIFIERS, excludedQualifiers);
@@ -69,7 +69,7 @@ public class MarkDatabaseAsUpToDateTask extends DbMaintainDatabaseTask {
 
     @Override
     protected boolean doExecute(MainFactory mainFactory) {
-        DbMaintainer migratebird = mainFactory.createDbMaintainer();
+        DbUpdate migratebird = mainFactory.createDbUpdate();
         migratebird.markDatabaseAsUpToDate();
         return true;
     }
@@ -79,8 +79,8 @@ public class MarkDatabaseAsUpToDateTask extends DbMaintainDatabaseTask {
         this.scriptLocations = scriptLocations;
     }
 
-    public void setAutoCreateDbMaintainScriptsTable(Boolean autoCreateDbMaintainScriptsTable) {
-        this.autoCreateDbMaintainScriptsTable = autoCreateDbMaintainScriptsTable;
+    public void setAutoCreateMigrateBirdScriptsTable(Boolean autoCreateMigrateBirdScriptsTable) {
+        this.autoCreateMigrateBirdScriptsTable = autoCreateMigrateBirdScriptsTable;
     }
 
     public void setQualifiers(String qualifiers) {

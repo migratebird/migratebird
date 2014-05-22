@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -126,7 +126,7 @@ public class DefaultDBClearerPreserveDoesNotExistTest {
                     parseItemIdentifier(SEQUENCE, "unexisting_sequence2", databases));
 
             createDbClearer(itemsToPreserve).clearDatabase();
-            fail("DbMaintainException expected.");
+            fail("MigrateBirdException expected.");
         } catch (MigrateBirdException e) {
             // expected
         }
@@ -147,7 +147,7 @@ public class DefaultDBClearerPreserveDoesNotExistTest {
                     parseItemIdentifier(SYNONYM, "unexisting_synonym2", databases));
 
             createDbClearer(itemsToPreserve).clearDatabase();
-            fail("DbMaintainException expected.");
+            fail("MigrateBirdException expected.");
         } catch (MigrateBirdException e) {
             // expected
         }

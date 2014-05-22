@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 package com.migratebird.maven.plugin;
 
 import com.migratebird.launch.task.CreateScriptArchiveTask;
-import com.migratebird.launch.task.DbMaintainTask;
+import com.migratebird.launch.task.MigrateBirdTask;
 
 import java.io.File;
 
@@ -140,7 +140,7 @@ public class CreateScriptArchiveMojo extends BaseMojo {
 
 
     @Override
-    protected DbMaintainTask createDbMaintainTask() {
+    protected MigrateBirdTask createMigrateBirdTask() {
         File archiveFile = getArchiveFile();
         archiveFile.getParentFile().mkdirs();
         return new CreateScriptArchiveTask(archiveFile.getPath(), scriptLocations, scriptEncoding, postProcessingScriptDirectoryName, qualifiers, patchQualifiers, scriptFileExtensions);

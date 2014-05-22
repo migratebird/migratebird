@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,10 +22,10 @@ import java.util.Properties;
 
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.Task;
-import com.migratebird.launch.task.DbMaintainTask;
+import com.migratebird.launch.task.MigrateBirdTask;
 
 /**
- * Base DbMaintain task
+ * Base MigrateBird task
  *
 */
 public abstract class BaseAntTask extends Task {
@@ -42,11 +42,11 @@ public abstract class BaseAntTask extends Task {
         File customConfigFile = getCustomConfigFile();
         Properties environmentProperties = getAntProperties();
 
-        DbMaintainTask dbMaintainTask = createDbMaintainTask();
-        dbMaintainTask.setConfigFile(customConfigFile);
-        dbMaintainTask.setEnvironmentProperties(environmentProperties);
+        MigrateBirdTask migrateBirdTask = createMigrateBirdTask();
+        migrateBirdTask.setConfigFile(customConfigFile);
+        migrateBirdTask.setEnvironmentProperties(environmentProperties);
         try {
-            dbMaintainTask.execute();
+            migrateBirdTask.execute();
         } catch (Exception e) {
             String messages = getAllMessages(e);
             throw new BuildException("Unable to perform db maintain task.\n" + messages, e);
@@ -54,7 +54,7 @@ public abstract class BaseAntTask extends Task {
     }
 
 
-    protected abstract DbMaintainTask createDbMaintainTask();
+    protected abstract MigrateBirdTask createMigrateBirdTask();
 
 
     /**

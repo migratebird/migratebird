@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -108,7 +108,7 @@ public class ReflectionUtils {
 
     /**
      * Gets the class for the given name.
-     * An DbMaintainException is thrown when the class could not be loaded.
+     * An MigrateBirdException is thrown when the class could not be loaded.
      *
      * @param className The name of the class, not null
      * @return The class, not null

@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,22 +30,21 @@ import static com.migratebird.config.MigratebirdProperties.PROPERTY_USESCRIPTFIL
 
 import java.util.List;
 
-import com.migratebird.DbMaintainer;
+import com.migratebird.DbUpdate;
 import com.migratebird.MainFactory;
 
 /**
  * Performs a dry run of the database update. May be used to verify if there are any updates or in a test that fails
  * if it appears that an irregular script update was performed.
  *
-* @since 10-feb-2009
  */
-public class CheckScriptUpdatesTask extends DbMaintainDatabaseTask {
+public class CheckScriptUpdatesTask extends MigrateBirdDatabaseTask {
 
     protected String scriptLocations;
     protected String scriptEncoding;
     protected String postProcessingScriptDirectoryName;
     protected Boolean fromScratchEnabled;
-    protected Boolean autoCreateDbMaintainScriptsTable;
+    protected Boolean autoCreateMigrateBirdScriptsTable;
     protected Boolean allowOutOfSequenceExecutionOfPatches;
     protected String qualifiers;
     protected String patchQualifiers;
@@ -58,13 +57,13 @@ public class CheckScriptUpdatesTask extends DbMaintainDatabaseTask {
     public CheckScriptUpdatesTask() {
     }
 
-    public CheckScriptUpdatesTask(List<DbMaintainDatabase> taskDatabases, String scriptLocations, String scriptEncoding, String postProcessingScriptDirectoryName, Boolean fromScratchEnabled, Boolean autoCreateDbMaintainScriptsTable, Boolean allowOutOfSequenceExecutionOfPatches, String qualifiers, String patchQualifiers, String includedQualifiers, String excludedQualifiers, String scriptFileExtensions, Boolean useLastModificationDates) {
+    public CheckScriptUpdatesTask(List<MigrateBirdDatabase> taskDatabases, String scriptLocations, String scriptEncoding, String postProcessingScriptDirectoryName, Boolean fromScratchEnabled, Boolean autoCreateMigrateBirdScriptsTable, Boolean allowOutOfSequenceExecutionOfPatches, String qualifiers, String patchQualifiers, String includedQualifiers, String excludedQualifiers, String scriptFileExtensions, Boolean useLastModificationDates) {
         super(taskDatabases);
         this.scriptLocations = scriptLocations;
         this.scriptEncoding = scriptEncoding;
         this.postProcessingScriptDirectoryName = postProcessingScriptDirectoryName;
         this.fromScratchEnabled = fromScratchEnabled;
-        this.autoCreateDbMaintainScriptsTable = autoCreateDbMaintainScriptsTable;
+        this.autoCreateMigrateBirdScriptsTable = autoCreateMigrateBirdScriptsTable;
         this.allowOutOfSequenceExecutionOfPatches = allowOutOfSequenceExecutionOfPatches;
         this.qualifiers = qualifiers;
         this.patchQualifiers = patchQualifiers;
@@ -82,7 +81,7 @@ public class CheckScriptUpdatesTask extends DbMaintainDatabaseTask {
         taskConfiguration.addConfigurationIfSet(PROPERTY_SCRIPT_ENCODING, scriptEncoding);
         taskConfiguration.addConfigurationIfSet(PROPERTY_POSTPROCESSINGSCRIPT_DIRNAME, postProcessingScriptDirectoryName);
         taskConfiguration.addConfigurationIfSet(PROPERTY_FROM_SCRATCH_ENABLED, fromScratchEnabled);
-        taskConfiguration.addConfigurationIfSet(PROPERTY_AUTO_CREATE_MIGRATEBIRD_SCRIPTS_TABLE, autoCreateDbMaintainScriptsTable);
+        taskConfiguration.addConfigurationIfSet(PROPERTY_AUTO_CREATE_MIGRATEBIRD_SCRIPTS_TABLE, autoCreateMigrateBirdScriptsTable);
         taskConfiguration.addConfigurationIfSet(PROPERTY_PATCH_ALLOWOUTOFSEQUENCEEXECUTION, allowOutOfSequenceExecutionOfPatches);
         taskConfiguration.addConfigurationIfSet(PROPERTY_QUALIFIERS, qualifiers);
         taskConfiguration.addConfigurationIfSet(PROPERTY_SCRIPT_PATCH_QUALIFIERS, patchQualifiers);
@@ -94,7 +93,7 @@ public class CheckScriptUpdatesTask extends DbMaintainDatabaseTask {
 
     @Override
     protected boolean doExecute(MainFactory mainFactory) {
-        DbMaintainer migratebird = mainFactory.createDbMaintainer();
+        DbUpdate migratebird = mainFactory.createDbUpdate();
         migratebird.updateDatabase(true);
         return true;
     }
@@ -116,8 +115,8 @@ public class CheckScriptUpdatesTask extends DbMaintainDatabaseTask {
         this.fromScratchEnabled = fromScratchEnabled;
     }
 
-    public void setAutoCreateDbMaintainScriptsTable(Boolean autoCreateDbMaintainScriptsTable) {
-        this.autoCreateDbMaintainScriptsTable = autoCreateDbMaintainScriptsTable;
+    public void setAutoCreateMigrateBirdScriptsTable(Boolean autoCreateMigrateBirdScriptsTable) {
+        this.autoCreateMigrateBirdScriptsTable = autoCreateMigrateBirdScriptsTable;
     }
 
     public void setAllowOutOfSequenceExecutionOfPatches(Boolean allowOutOfSequenceExecutionOfPatches) {

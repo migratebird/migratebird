@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,8 +16,8 @@
 package com.migratebird.maven.plugin;
 
 import org.apache.maven.artifact.Artifact;
-import com.migratebird.launch.task.DbMaintainDatabase;
-import com.migratebird.launch.task.DbMaintainTask;
+import com.migratebird.launch.task.MigrateBirdDatabase;
+import com.migratebird.launch.task.MigrateBirdTask;
 import com.migratebird.util.MigrateBirdException;
 
 import java.io.File;
@@ -39,33 +39,33 @@ public abstract class BaseDatabaseMojo extends BaseMojo {
     protected List<Database> databases;
 
 
-    protected abstract DbMaintainTask createDbMaintainTask(List<DbMaintainDatabase> dbMaintainDatabases);
+    protected abstract MigrateBirdTask createMigrateBirdTask(List<MigrateBirdDatabase> migrateBirdDatabases);
 
 
     @Override
-    protected DbMaintainTask createDbMaintainTask() {
-        List<DbMaintainDatabase> dbMaintainDatabases = getDbMaintainDatabases();
-        return createDbMaintainTask(dbMaintainDatabases);
+    protected MigrateBirdTask createMigrateBirdTask() {
+        List<MigrateBirdDatabase> migrateBirdDatabases = getMigrateBirdDatabases();
+        return createMigrateBirdTask(migrateBirdDatabases);
     }
 
-    protected List<DbMaintainDatabase> getDbMaintainDatabases() {
-        List<DbMaintainDatabase> dbMaintainDatabases = new ArrayList<DbMaintainDatabase>();
+    protected List<MigrateBirdDatabase> getMigrateBirdDatabases() {
+        List<MigrateBirdDatabase> migrateBirdDatabases = new ArrayList<MigrateBirdDatabase>();
         if (databases == null) {
-            return dbMaintainDatabases;
+            return migrateBirdDatabases;
         }
         for (Database database : databases) {
-            DbMaintainDatabase dbMaintainDatabase = new DbMaintainDatabase();
-            dbMaintainDatabase.setName(database.getName());
-            dbMaintainDatabase.setIncluded(database.isIncluded());
-            dbMaintainDatabase.setDialect(database.getDialect());
-            dbMaintainDatabase.setDriverClassName(database.getDriverClassName());
-            dbMaintainDatabase.setUrl(database.getUrl());
-            dbMaintainDatabase.setUserName(database.getUserName());
-            dbMaintainDatabase.setPassword(database.getPassword());
-            dbMaintainDatabase.setSchemaNames(database.getSchemaNames());
-            dbMaintainDatabases.add(dbMaintainDatabase);
+            MigrateBirdDatabase migrateBirdDatabase = new MigrateBirdDatabase();
+            migrateBirdDatabase.setName(database.getName());
+            migrateBirdDatabase.setIncluded(database.isIncluded());
+            migrateBirdDatabase.setDialect(database.getDialect());
+            migrateBirdDatabase.setDriverClassName(database.getDriverClassName());
+            migrateBirdDatabase.setUrl(database.getUrl());
+            migrateBirdDatabase.setUserName(database.getUserName());
+            migrateBirdDatabase.setPassword(database.getPassword());
+            migrateBirdDatabase.setSchemaNames(database.getSchemaNames());
+            migrateBirdDatabases.add(migrateBirdDatabase);
         }
-        return dbMaintainDatabases;
+        return migrateBirdDatabases;
     }
 
     protected String getAllScriptLocations(String scriptLocations, List<ScriptArchiveDependency> scriptArchiveDependencies) {

@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -328,7 +328,7 @@ public class DefaultExecutedScriptInfoSource implements ExecutedScriptInfoSource
 
         // throw an exception that shows how to create the version table
         String message = "Executed scripts table " + getQualifiedExecutedScriptsTableName() + " doesn't exist yet or is invalid.\n";
-        message += "Please create it manually or let DbMaintain create it automatically by setting the property autoCreateDbMaintainScriptsTable to true.\n";
+        message += "Please create it manually or let MigrateBird create it automatically by setting the property autoCreateMigrateBirdScriptsTable to true.\n";
         message += "The table can be created manually by executing following statement:\n";
         message += getCreateExecutedScriptTableStatement();
         throw new MigrateBirdException(message);

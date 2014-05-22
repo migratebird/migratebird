@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,9 +26,6 @@ import static com.migratebird.util.CollectionUtils.asSet;
 import static com.migratebird.util.TestUtils.createScript;
 import static org.junit.Assert.assertEquals;
 
-/**
-* @since 28-dec-2008
- */
 public class FileSystemScriptLocationTest {
 
     private FileSystemScriptLocation fileSystemScriptLocation;

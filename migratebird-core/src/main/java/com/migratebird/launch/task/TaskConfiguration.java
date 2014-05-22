@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -75,11 +75,11 @@ public class TaskConfiguration {
         }
     }
 
-    public void addDatabaseConfigurations(List<? extends DbMaintainDatabase> dbMaintainDatabases) {
+    public void addDatabaseConfigurations(List<? extends MigrateBirdDatabase> migrateBirdDatabases) {
         List<String> databaseNames = new ArrayList<String>();
 
-        for (DbMaintainDatabase dbMaintainDatabase : dbMaintainDatabases) {
-            String name = dbMaintainDatabase.getName();
+        for (MigrateBirdDatabase migrateBirdDatabase : migrateBirdDatabases) {
+            String name = migrateBirdDatabase.getName();
             if (isBlank(name)) {
                 name = UNNAMED_DATABASE_NAME;
                 if (databaseNames.contains(name)) {
@@ -93,9 +93,9 @@ public class TaskConfiguration {
                 }
                 databaseNames.add(name);
             }
-            addDatabaseConfiguration(dbMaintainDatabase, name);
+            addDatabaseConfiguration(migrateBirdDatabase, name);
 
-            DataSource dataSource = dbMaintainDatabase.getDataSource();
+            DataSource dataSource = migrateBirdDatabase.getDataSource();
             if (dataSource != null) {
                 dataSourcesPerDatabaseName.put(name, dataSource);
             }
@@ -103,7 +103,7 @@ public class TaskConfiguration {
         configuration.put(PROPERTY_DATABASE_NAMES, join(databaseNames, ','));
     }
 
-    protected void addDatabaseConfiguration(DbMaintainDatabase taskDatabase, String name) {
+    protected void addDatabaseConfiguration(MigrateBirdDatabase taskDatabase, String name) {
         addConfigurationIfSet(PROPERTY_DATABASE_START + '.' + name + '.' + PROPERTY_DIALECT_END, taskDatabase.getDialect());
         addConfigurationIfSet(PROPERTY_DATABASE_START + '.' + name + '.' + PROPERTY_DRIVERCLASSNAME_END, taskDatabase.getDriverClassName());
         addConfigurationIfSet(PROPERTY_DATABASE_START + '.' + name + '.' + PROPERTY_URL_END, taskDatabase.getUrl());

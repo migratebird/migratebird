@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -138,7 +138,7 @@ public class DefaultDBCleaner implements DBCleaner {
 					throw new MigrateBirdException(
 							"Schema to preserve does not exist: "
 									+ itemToPreserve.getSchemaName()
-									+ ".\nDbMaintain cannot determine which schema's need to be preserved. To assure nothing is deleted by mistake, nothing will be deleted.");
+									+ ".\nMigrateBird cannot determine which schema's need to be preserved. To assure nothing is deleted by mistake, nothing will be deleted.");
 				}
 			} else if (type == DbItemType.TABLE) {
 				Set<DbItemIdentifier> tableNames = schemaTableNames
@@ -151,14 +151,14 @@ public class DefaultDBCleaner implements DBCleaner {
 					schemaTableNames
 							.put(itemToPreserve.getSchema(), tableNames);
 				}
-				if (!itemToPreserve.isDbMaintainIdentifier()
+				if (!itemToPreserve.isMigrateBirdIdentifier()
 						&& !tableNames.contains(itemToPreserve)) {
 					throw new MigrateBirdException(
 							"Table to preserve does not exist: "
 									+ itemToPreserve.getItemName()
 									+ " in schema: "
 									+ itemToPreserve.getSchemaName()
-									+ ".\nDbMaintain cannot determine which tables need to be preserved. To assure nothing is deleted by mistake, nothing will be deleted.");
+									+ ".\nMigrateBird cannot determine which tables need to be preserved. To assure nothing is deleted by mistake, nothing will be deleted.");
 				}
 			}
 		}

@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,9 +26,6 @@ import com.migratebird.script.Script;
 import com.migratebird.script.qualifier.QualifierEvaluator;
 import com.migratebird.util.MigrateBirdException;
 
-/**
-* @since 16-dec-2008
- */
 public class ScriptRepository {
 
     protected SortedSet<Script> indexedScripts = new TreeSet<Script>();

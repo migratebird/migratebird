@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,14 +23,14 @@ import com.migratebird.util.MigrateBirdException;
 public class DatabaseException extends MigrateBirdException {
 
     /**
-     * Constructor for DbMaintainException.
+     * Constructor for MigrateBirdException.
      */
     public DatabaseException() {
         super();
     }
 
     /**
-     * Constructor for DbMaintainException.
+     * Constructor for MigrateBirdException.
      *
      * @param message The exception message
      * @param cause   The wrapped exception
@@ -40,7 +40,7 @@ public class DatabaseException extends MigrateBirdException {
     }
 
     /**
-     * Constructor for DbMaintainException.
+     * Constructor for MigrateBirdException.
      *
      * @param message The exception message
      */
@@ -49,7 +49,7 @@ public class DatabaseException extends MigrateBirdException {
     }
 
     /**
-     * Constructor for DbMaintainException.
+     * Constructor for MigrateBirdException.
      *
      * @param cause The wrapped exception
      */

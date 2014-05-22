@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,8 +47,6 @@ import com.migratebird.script.repository.ScriptRepository;
  * An instance of this class can compare the info that we have about previously executed scripts with the new scripts.
  * It decides which of these scripts were added, updated, deleted or renamed. It also decides for each script update
  * whether it is a regular or irregular one.
- *
-* @since 29-dec-2008
  */
 public class ScriptUpdatesAnalyzer {
 

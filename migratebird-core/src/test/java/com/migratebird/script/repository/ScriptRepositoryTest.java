@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,9 +25,6 @@ import static com.migratebird.util.CollectionUtils.asSortedSet;
 import static com.migratebird.util.TestUtils.*;
 import static org.junit.Assert.assertEquals;
 
-/**
-* @since 28-dec-2008
- */
 public class ScriptRepositoryTest {
 
     Script indexed1, repeatable1, postProcessing1, indexed2, repeatable2, postProcessing2, duplicateIndex;

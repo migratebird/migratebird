@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -69,7 +69,7 @@ public class ConstraintsDisablerTest {
     public void testDisableConstraints_foreignKey() {
         try {
             SQLTestUtils.executeUpdate("insert into table2 (col1) values ('test')", dataSource);
-            fail("DbMaintainException should have been thrown");
+            fail("MigrateBirdException should have been thrown");
         } catch (MigrateBirdException e) {
             // Expected foreign key violation
         }
@@ -87,7 +87,7 @@ public class ConstraintsDisablerTest {
     public void testDisableConstraints_foreignKeyToAlternateKey() {
         try {
             SQLTestUtils.executeUpdate("insert into table3 (col1) values ('test')", dataSource);
-            fail("DbMaintainException should have been thrown");
+            fail("MigrateBirdException should have been thrown");
         } catch (MigrateBirdException e) {
             // Expected foreign key violation
         }
@@ -104,7 +104,7 @@ public class ConstraintsDisablerTest {
     public void testDisableConstraints_notNull() {
         try {
             SQLTestUtils.executeUpdate("insert into table1 (col1, col2) values ('test', null)", dataSource);
-            fail("DbMaintainException should have been thrown");
+            fail("MigrateBirdException should have been thrown");
         } catch (MigrateBirdException e) {
             // Expected not null violation
         }

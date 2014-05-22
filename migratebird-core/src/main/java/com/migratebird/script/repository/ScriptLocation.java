@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,9 +41,6 @@ import com.migratebird.script.executedscriptinfo.ScriptIndexes;
 import com.migratebird.script.qualifier.Qualifier;
 import com.migratebird.util.MigrateBirdException;
 
-/**
-* @since 24-dec-2008
- */
 abstract public class ScriptLocation {
 
     /**

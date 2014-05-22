@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,7 +34,7 @@ import com.migratebird.script.archive.ScriptArchiveCreator;
  * jar in a properties file.
  *
 */
-public class CreateScriptArchiveTask extends DbMaintainTask {
+public class CreateScriptArchiveTask extends MigrateBirdTask {
 
     protected String archiveFileName;
     protected String scriptLocations;

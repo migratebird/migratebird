@@ -10,7 +10,7 @@ import org.apache.maven.plugin.MojoExecutionException;
 /**
  * Display help information on migratebird-maven-plugin.<br/> Call <pre>  mvn migratebird:help -Ddetail=true -Dgoal=&lt;goal-name&gt;</pre> to display parameter details.
  *
- * @version generated on Fri May 23 00:09:59 EEST 2014
+ * @version generated on Fri May 23 00:34:38 EEST 2014
  * @author org.apache.maven.tools.plugin.generator.PluginHelpGenerator (version 2.5)
  * @goal help
  * @requiresProject false

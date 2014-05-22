@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,9 +17,6 @@ package com.migratebird.script.analyzer;
 
 import com.migratebird.script.Script;
 
-/**
-* @since 26-dec-2008
- */
 public class ScriptUpdate implements Comparable<ScriptUpdate> {
 
     private ScriptUpdateType type;

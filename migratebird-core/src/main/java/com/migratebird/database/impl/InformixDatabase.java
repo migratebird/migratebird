@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,17 +23,17 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Set;
 
-import com.migratebird.database.Database;
+import com.migratebird.database.AbstractDatabase;
 import com.migratebird.database.DatabaseConnection;
 import com.migratebird.database.DatabaseException;
 import com.migratebird.database.IdentifierProcessor;
 
 
 /**
- * Implementation of {@link com.migratebird.database.Database} for a hsqldb database
+ * Implementation of {@link com.migratebird.database.AbstractDatabase} for a hsqldb database
  *
 */
-public class InformixDatabase extends Database {
+public class InformixDatabase extends AbstractDatabase {
 
     public InformixDatabase(DatabaseConnection databaseConnection, IdentifierProcessor identifierProcessor) {
         super(databaseConnection, identifierProcessor);

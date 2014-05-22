@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,13 +26,13 @@ import com.migratebird.script.executedscriptinfo.ExecutedScriptInfoSource;
  * No scripts will be executed by this task.
  *
 */
-public class MarkErrorScriptPerformedTask extends DbMaintainDatabaseTask {
+public class MarkErrorScriptPerformedTask extends MigrateBirdDatabaseTask {
 
 
     public MarkErrorScriptPerformedTask() {
     }
 
-    public MarkErrorScriptPerformedTask(List<DbMaintainDatabase> taskDatabases) {
+    public MarkErrorScriptPerformedTask(List<MigrateBirdDatabase> taskDatabases) {
         super(taskDatabases);
     }
 

@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.project.MavenProject;
 import org.apache.maven.project.MavenProjectHelper;
-import com.migratebird.launch.task.DbMaintainTask;
+import com.migratebird.launch.task.MigrateBirdTask;
 
 import java.io.File;
 import java.util.List;
@@ -72,8 +72,8 @@ public abstract class BaseMojo extends AbstractMojo {
      */
     protected MavenProjectHelper mavenProjectHelper;
     /**
-     * The DbMaintain configuration file
-     * (common for native dbMaintain, through ant or this maven-plugin).
+     * The MigrateBird configuration file
+     * (common for native migrateBird, through ant or this maven-plugin).
      *
      * @parameter
      */
@@ -83,15 +83,15 @@ public abstract class BaseMojo extends AbstractMojo {
     public void execute() throws MojoExecutionException, MojoFailureException {
         Properties environmentProperties = getMavenProperties();
 
-        DbMaintainTask dbMaintainTask = createDbMaintainTask();
-        dbMaintainTask.setConfigFile(configFile);
-        dbMaintainTask.setEnvironmentProperties(environmentProperties);
-        dbMaintainTask.execute();
+        MigrateBirdTask migrateBirdTask = createMigrateBirdTask();
+        migrateBirdTask.setConfigFile(configFile);
+        migrateBirdTask.setEnvironmentProperties(environmentProperties);
+        migrateBirdTask.execute();
 
         performAfterTaskActions();
     }
 
-    protected abstract DbMaintainTask createDbMaintainTask();
+    protected abstract MigrateBirdTask createMigrateBirdTask();
 
     /**
      * Hook method to perform some operations (such as attaching an artifact) when the

@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Turgay Kivrak
+ * Copyright 2014 www.migratebird.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,19 +16,19 @@
 package com.migratebird.launch.ant;
 
 
-import com.migratebird.launch.task.DbMaintainTask;
+import com.migratebird.launch.task.MigrateBirdTask;
 import com.migratebird.launch.task.MarkDatabaseAsUpToDateTask;
 
 /**
  * This operation updates the state of the database to indicate that all scripts have been executed, without actually
- * executing them. This can be useful when you want to start using DbMaintain on an existing database, or after having
+ * executing them. This can be useful when you want to start using MigrateBird on an existing database, or after having
  * fixed a problem directly on the database.
  *
 */
 public class MarkDatabaseAsUpToDateAntTask extends BaseDatabaseAntTask {
 
     private String scriptLocations;
-    private Boolean autoCreateDbMaintainScriptsTable;
+    private Boolean autoCreateMigrateBirdScriptsTable;
     private String qualifiers;
     private String includedQualifiers;
     private String excludedQualifiers;
@@ -36,8 +36,8 @@ public class MarkDatabaseAsUpToDateAntTask extends BaseDatabaseAntTask {
 
 
     @Override
-    protected DbMaintainTask createDbMaintainTask() {
-        return new MarkDatabaseAsUpToDateTask(getDbMaintainDatabases(), scriptLocations, autoCreateDbMaintainScriptsTable, qualifiers, includedQualifiers, excludedQualifiers, scriptFileExtensions);
+    protected MigrateBirdTask createMigrateBirdTask() {
+        return new MarkDatabaseAsUpToDateTask(getMigrateBirdDatabases(), scriptLocations, autoCreateMigrateBirdScriptsTable, qualifiers, includedQualifiers, excludedQualifiers, scriptFileExtensions);
     }
 
 
@@ -52,15 +52,15 @@ public class MarkDatabaseAsUpToDateAntTask extends BaseDatabaseAntTask {
     }
 
     /**
-     * Sets the autoCreateDbMaintainScriptsTable property. If set to true, the table MIGRATEBIRD_SCRIPTS will be created
+     * Sets the autoCreateMigrateBirdScriptsTable property. If set to true, the table MIGRATEBIRD_SCRIPTS will be created
      * automatically if it does not exist yet. If false, an exception is thrown, indicating how to create the table manually.
      * False by default.
      *
-     * @param autoCreateDbMaintainScriptsTable
+     * @param autoCreateMigrateBirdScriptsTable
      *         True if the MIGRATEBIRD_SCRIPTS table can be created automatically
      */
-    public void setAutoCreateDbMaintainScriptsTable(Boolean autoCreateDbMaintainScriptsTable) {
-        this.autoCreateDbMaintainScriptsTable = autoCreateDbMaintainScriptsTable;
+    public void setAutoCreateMigrateBirdScriptsTable(Boolean autoCreateMigrateBirdScriptsTable) {
+        this.autoCreateMigrateBirdScriptsTable = autoCreateMigrateBirdScriptsTable;
     }
 
     /**
