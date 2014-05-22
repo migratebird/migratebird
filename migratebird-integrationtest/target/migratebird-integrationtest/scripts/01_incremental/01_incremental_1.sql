@@ -1,0 +1,1 @@
+create table incremental_1 (test varchar(10)); 

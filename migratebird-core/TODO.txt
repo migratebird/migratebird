@@ -1,0 +1,25 @@
+-Add csv support
+
+-Seperate project for ant tasks
+
+-Show log for whaver running in files
+
+- Change prop files
+db.properties
+
+migratebird.properties
+
+
+-Change operations
+
+update			Updates the database
+cleanObjects	Drops all objects in the configured schemas
+cleanData		Deletes all data
+status			Prints the details and status information about all the migrations
+validate		Validates the applied migrations against the ones available on the classpath
+init			Creates and initializes the metadata table (existing database)
+repairX/mark?	Repairs the metadata table
+
+
+- Generate sql to be generated into a SQL file>
+updateSQL in LB?
